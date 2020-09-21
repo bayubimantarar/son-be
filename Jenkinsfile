@@ -10,8 +10,14 @@ pipeline {
         }
         stage('Unit Test') {
             steps {
-                sh 'echo Test laravel project'
+                sh 'echo unit test'
                 sh './vendor/bin/phpunit'
+            }
+        }
+        stage('Browser Test') {
+            steps {
+                sh 'echo browser test'
+                sh 'php artisan dusk'
             }
         }
     }
