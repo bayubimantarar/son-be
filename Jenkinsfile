@@ -17,6 +17,7 @@ pipeline {
         stage('Browser Test') {
             steps {
                 sh 'echo browser test'
+                sh 'php artisan dusk:chrome-driver --all'
                 sh 'php artisan dusk'
             }
         }
