@@ -2,11 +2,10 @@ pipeline {
     agent none
     stages {
         stage('Build') {
-            // agent {
-            //     docker { image 'composer:latest' }
-            // }
+            agent {
+                docker { image 'composer:latest' }
+            }
             steps {
-                sh 'whoami'
                 sh 'composer install'
                 sh 'cp .env.example .env'
                 sh 'php artisan key:generate'
