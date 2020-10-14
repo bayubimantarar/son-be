@@ -1,9 +1,11 @@
 pipeline {
+    agent {
+        docker {
+            image 'composer'
+        }
+    }
     stages {
         stage('Build') {
-            agent {
-                docker 'composer'
-            }
             steps {
                 sh 'composer install'
                 sh 'cp .env.example .env'
