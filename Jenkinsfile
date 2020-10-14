@@ -3,9 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                docker {
-                  image 'composer:latest'
-                }
+                docker 'composer:latest'
             }
             steps {
                 sh 'composer install'
