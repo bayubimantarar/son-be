@@ -2,9 +2,6 @@ pipeline {
     agent none
     stages {
         stage('Build') {
-            agent {
-                docker { image 'composer:latest' }
-            }
             steps {
                 sh 'composer install'
                 sh 'cp .env.example .env'
@@ -17,12 +14,12 @@ pipeline {
                 sh './vendor/bin/phpunit'
             }
         }
-        stage('Browser Test') {
-            steps {
-                sh 'echo browser test'
-                sh 'php artisan dusk:chrome-driver --all'
-                sh 'php artisan dusk'
-            }
-        }
+        // stage('Browser Test') {
+        //     steps {
+        //         sh 'echo browser test'
+        //         sh 'php artisan dusk:chrome-driver --all'
+        //         sh 'php artisan dusk'
+        //     }
+        // }
     }
 }
