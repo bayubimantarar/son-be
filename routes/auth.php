@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Auth Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -13,4 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', 'LoginController@index');
+Route::group(['prefix' => 'authentication'], function(){
+    Route::get('/login-form', [
+        'uses' => 'App\Http\Controllers\Authentication\LoginController@index',
+        'as' => 'authentication.login-form'
+    ]);
+    Route::post('/login', [
+        'uses' => 'App\Http\Controllers\Authentication\LoginController@login',
+        'as' => 'authentication.login'
+    ]);
+});

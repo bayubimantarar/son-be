@@ -44,11 +44,13 @@ services:
   #     context: ./docker/redis
   #   ports:
   #     - 6379:6379
-  jenkins:
-    build:
-      context: ./docker/jenkins
-    container_name: son-be-jenkins
-    privileged: true
-    ports:
-      - 8080:8080
-      - 50000:50000
+  # jenkins:
+  #   build:
+  #     context: ./docker/jenkins
+  #   container_name: son-be-jenkins
+  #   privileged: true
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   ports:
+  #     - 8080:8080
+  #     - 50000:50000
