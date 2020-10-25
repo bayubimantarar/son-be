@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '#!/bin/zsh -l'
+                sh 'curl -sS https://getcomposer.org/installer | php'
+                sh 'mv composer.phar /usr/local/bin/composer'
                 sh 'composer install'
                 sh 'cp .env.example .env'
                 sh 'php artisan key:generate'
