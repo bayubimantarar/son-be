@@ -47,7 +47,7 @@
             <h3 class="panel-title">Login</h3>
           </div>
           <div class="panel-body">
-            <form method="post" action="/authentication/login" role="form">
+            <form method="post" action="/authentication/login">
               <input
                 type="hidden"
                 name="_token"
